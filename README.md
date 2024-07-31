@@ -14,7 +14,7 @@ dependencies:
   dependencies:
  external_path_ios_mac:
       git:
-        url: https://github.com/SwanFlutter/flutter_saver.git
+        url: https://github.com/SwanFlutter/external_path_ios_mac.git
 ```
 
 
