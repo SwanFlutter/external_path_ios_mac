@@ -47,13 +47,10 @@ add a filesystem access
 ## example
 
 ```dart
-import 'dart:async';
 
-import 'package:external_path_ios_mac/external_path_ios_mac.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
-
+import 'dart:io';
+import 'external_path_ios_mac.dart'; // اضافه کردن پکیج مربوطه
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -77,14 +74,11 @@ class _MyAppState extends State<MyApp> {
   String _directoryPathDocuments = '';
   String _directoryPathScreenshots = '';
   String _directoryPathAudiobooks = '';
-  
+
   // mac path
   String _directoryPathDownloadMac = '';
   String _directoryPathPicturesMac = '';
   String _directoryPathMoviesMac = '';
-
-
- 
 
   String _platformVersion = '';
 
@@ -95,7 +89,6 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> _initPlatformState() async {
-    String directoryPath;
     String platformVersion;
     try {
       platformVersion = (await _externalPathIosMacPlugin.getPlatformVersion()) ?? 'Unknown platform version';
@@ -112,7 +105,7 @@ class _MyAppState extends State<MyApp> {
       _directoryPathDocuments = (await _externalPathIosMacPlugin.getDirectoryPath(directory: 'DIRECTORY_DOCUMENTS')) ?? 'Unknown directory';
       _directoryPathScreenshots = (await _externalPathIosMacPlugin.getDirectoryPath(directory: 'DIRECTORY_SCREENSHOTS')) ?? 'Unknown directory';
       _directoryPathAudiobooks = (await _externalPathIosMacPlugin.getDirectoryPath(directory: 'DIRECTORY_AUDIOBOOKS')) ?? 'Unknown directory';
-      
+
       // get path mac
       _directoryPathDownloadMac = (await _externalPathIosMacPlugin.getDirectoryPathMacOs(directory: "DIRECTORY_DOWNLOADS")) ?? 'Unknown directory';
       _directoryPathPicturesMac = (await _externalPathIosMacPlugin.getDirectoryPathMacOs(directory: "DIRECTORY_PICTURES")) ?? 'Unknown directory';
@@ -120,27 +113,45 @@ class _MyAppState extends State<MyApp> {
 
     } catch (e) {
       platformVersion = 'Failed to get platform version.';
-      directoryPath = 'Failed to get directory path.';
     }
 
     if (!mounted) return;
 
     setState(() {
       _platformVersion = platformVersion;
-      _directoryPath = directoryPath;
     });
   }
 
   Future<void> _saveFile() async {
+    List<String> directoryPaths = [
+      _directoryPathDownload,
+      _directoryPathMusic,
+      _directoryPathPodcasts,
+      _directoryPathRingtones,
+      _directoryPathAlarms,
+      _directoryPathNotifications,
+      _directoryPathPictures,
+      _directoryPathMovies,
+      _directoryPathDCIM,
+      _directoryPathDocuments,
+      _directoryPathScreenshots,
+      _directoryPathAudiobooks,
+      _directoryPathDownloadMac,
+      _directoryPathPicturesMac,
+      _directoryPathMoviesMac,
+    ];
+
     try {
       final fileName = 'example.txt';
-      final filePath = '$_directoryPath/$fileName';
-      final file = File(filePath);
+      for (String path in directoryPaths) {
+        if (path != 'Unknown directory' && path.isNotEmpty) {
+          final filePath = '$path/$fileName';
+          final file = File(filePath);
+          await file.writeAsString('This is a sample text.');
 
-      // نوشتن محتوا در فایل
-      await file.writeAsString('This is a sample text.');
-
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('File saved to $filePath')));
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('File saved to $filePath')));
+        }
+      }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Failed to save file: $e')));
     }
@@ -154,53 +165,56 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text('Running on: $_platformVersion'),
-              Sizedbox(height:5),
-              Text('_directoryPathDownload: $_directoryPathDownload'),
-              Sizedbox(height:5),
-              Text('_directoryPathMusic: $_directoryPathMusic'),
-              Sizedbox(height:5),
-              Text('_directoryPathPodcasts: $_directoryPathPodcasts'),
-              Sizedbox(height:5),
-              Text('_directoryPathRingtones: $_directoryPathRingtones'),
-              Sizedbox(height:5),
-              Text('_directoryPathAlarms: $_directoryPathAlarms'),
-              Sizedbox(height:5),
-              Text('_directoryPathNotifications: $_directoryPathNotifications'),
-              Sizedbox(height:5),
-              Text('_directoryPathPictures: $_directoryPathPictures'),
-              Sizedbox(height:5),
-              Text('_directoryPathMovies: $_directoryPathMovies'),
-              Sizedbox(height:5),
-              Text('_directoryPathDCIM: $_directoryPathDCIM'),
-              Sizedbox(height:5),
-              Text('_directoryPathDocuments: $_directoryPathDocuments'),
-              Sizedbox(height:5),
-              Text('_directoryPathScreenshots: $_directoryPathScreenshots'),
-              Sizedbox(height:5),
-              Text('_directoryPathAudiobooks: $_directoryPathAudiobooks'),
-              Sizedbox(height:5),
-              // mac 
-              Text('_directoryPathDownloadMac: $_directoryPathDownloadMac'),
-              Sizedbox(height:5),
-              Text('_directoryPathPicturesMac: $_directoryPathPicturesMac'),
-              Sizedbox(height:5),
-              Text('_directoryPathMoviesMac: $_directoryPathMoviesMac'),
-              //
-              ElevatedButton(
-                onPressed: _saveFile,
-                child: const Text('Save File'),
-              ),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('Running on: $_platformVersion'),
+                SizedBox(height: 5),
+                Text('_directoryPathDownload: $_directoryPathDownload'),
+                SizedBox(height: 5),
+                Text('_directoryPathMusic: $_directoryPathMusic'),
+                SizedBox(height: 5),
+                Text('_directoryPathPodcasts: $_directoryPathPodcasts'),
+                SizedBox(height: 5),
+                Text('_directoryPathRingtones: $_directoryPathRingtones'),
+                SizedBox(height: 5),
+                Text('_directoryPathAlarms: $_directoryPathAlarms'),
+                SizedBox(height: 5),
+                Text('_directoryPathNotifications: $_directoryPathNotifications'),
+                SizedBox(height: 5),
+                Text('_directoryPathPictures: $_directoryPathPictures'),
+                SizedBox(height: 5),
+                Text('_directoryPathMovies: $_directoryPathMovies'),
+                SizedBox(height: 5),
+                Text('_directoryPathDCIM: $_directoryPathDCIM'),
+                SizedBox(height: 5),
+                Text('_directoryPathDocuments: $_directoryPathDocuments'),
+                SizedBox(height: 5),
+                Text('_directoryPathScreenshots: $_directoryPathScreenshots'),
+                SizedBox(height: 5),
+                Text('_directoryPathAudiobooks: $_directoryPathAudiobooks'),
+                SizedBox(height: 5),
+                // mac 
+                Text('_directoryPathDownloadMac: $_directoryPathDownloadMac'),
+                SizedBox(height: 5),
+                Text('_directoryPathPicturesMac: $_directoryPathPicturesMac'),
+                SizedBox(height: 5),
+                Text('_directoryPathMoviesMac: $_directoryPathMoviesMac'),
+                //
+                ElevatedButton(
+                  onPressed: _saveFile,
+                  child: const Text('Save File'),
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 }
+
 
 ```
 
