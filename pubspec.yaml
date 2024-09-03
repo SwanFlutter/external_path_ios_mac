@@ -1,10 +1,10 @@
 name: external_path_ios_mac
-description: "A plugin to get folder path."
+description: "Restores directory paths for iOS and macOS.."
 version: 0.0.1
-homepage:
+homepage: "https://github.com/SwanFlutter/external_path_ios_mac"
 
 environment:
-  sdk: '>=3.4.3 <4.0.0'
+  sdk: '>=2.19.0 <4.0.0'
   flutter: '>=3.3.0'
 
 dependencies:

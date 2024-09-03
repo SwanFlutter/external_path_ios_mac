@@ -1,6 +1,6 @@
 # external_path_ios_mac
 
-A plugin to get folder path.
+Restores directory paths for iOS and macOS.
 
 ## Getting Started
 
