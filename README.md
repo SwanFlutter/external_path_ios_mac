@@ -18,6 +18,9 @@ dependencies:
 ```
 
 
+![InShot_20240903_165501799](https://github.com/user-attachments/assets/36bf827d-6760-464e-8f35-1ae5045d1af2)
+
+
 ## How to use
 
 ```dart
