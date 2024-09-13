@@ -19,7 +19,8 @@ dependencies:
 ```
 
 
-![InShot_20240903_165501799](https://github.com/user-attachments/assets/36bf827d-6760-464e-8f35-1ae5045d1af2)
+![photo_2024-09-12_23-49-20](https://github.com/user-attachments/assets/f7574952-92f7-4784-a433-c78453837e53)
+
 
 
 ## How to use
