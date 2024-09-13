@@ -8,7 +8,7 @@ A Flutter package for restoring directory paths on iOS and macOS devices, ensuri
 
 ```yaml
 dependencies:
-  external_path_ios_mac: ^0.0.1
+  external_path_ios_mac: ^0.0.2
 ```
 
 ```yaml
