@@ -1,6 +1,7 @@
 # external_path_ios_mac
 
-Restores directory paths for iOS and macOS.
+A Flutter package for restoring directory paths on iOS and macOS devices, ensuring file access and management across platforms.
+
 
 ## Getting Started
 
