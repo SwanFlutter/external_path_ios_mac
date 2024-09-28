@@ -5,3 +5,8 @@
 ## 0.0.2
 
 * Fix pub point.
+
+## 0.0.3
+
+* Edit api document and README.md.
+* Update package.

@@ -8,7 +8,7 @@ A Flutter package for restoring directory paths on iOS and macOS devices, ensuri
 
 ```yaml
 dependencies:
-  external_path_ios_mac: ^0.0.2
+  external_path_ios_mac: ^0.0.3
 ```
 
 ```yaml
@@ -28,6 +28,35 @@ dependencies:
 ```dart
 import 'package:external_path_ios_mac/external_path_ios_mac.dart';
 
+```
+
+- The following directories are supported Ios:
+
+```dart
+
+  - `DIRECTORY_DOWNLOADS`: Downloads directory = 'DIRECTORY_DOWNLOADS' .
+  - `DIRECTORY_MUSIC`: Music directory = 'DIRECTORY_MUSIC' .
+  - `DIRECTORY_PODCASTS`: Podcasts directory = 'DIRECTORY_PODCASTS'.
+  - `DIRECTORY_RINGTONES`: Ringtones directory = 'DIRECTORY_RINGTONES'.
+   - `DIRECTORY_ALARMS`: Alarms directory = 'DIRECTORY_ALARMS'.
+   - `DIRECTORY_NOTIFICATIONS`: Notifications directory = 'DIRECTORY_NOTIFICATIONS' .
+   - `DIRECTORY_PICTURES`: Pictures directory = 'DIRECTORY_PICTURES' .
+   - `DIRECTORY_MOVIES`: Movies directory = 'DIRECTORY_MOVIES'.
+   - `DIRECTORY_DCIM`: DCIM (Digital Camera Images) directory = 'DIRECTORY_DCIM' .
+   - `DIRECTORY_DOCUMENTS`: Documents directory = 'DIRECTORY_DOCUMENTS' .
+   - `DIRECTORY_SCREENSHOTS`: Screenshots directory = 'DIRECTORY_SCREENSHOTS'  .
+   - `DIRECTORY_AUDIOBOOKS`: Audiobooks directory. = 'DIRECTORY_AUDIOBOOKS' .
+
+```
+
+- The following directories are supported macOs:
+
+```dart
+  
+  - `DIRECTORY_DOWNLOADS`: Downloads directory = "DIRECTORY_DOWNLOADS".
+  - `DIRECTORY_PICTURES`: DIRECTORY_PICTURES directory = "DIRECTORY_PICTURES".
+  - `IRECTORY_MOVIES`: IRECTORY_MOVIES directory = "DIRECTORY_MOVIES".
+  
 ```
 
 ### iOS

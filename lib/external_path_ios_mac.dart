@@ -22,15 +22,31 @@ class ExternalPathIosMac {
   /// implementation of [ExternalPathIosMacPlatform]. It retrieves the directory path
   /// specified by the [directory] parameter.
   ///
+  /// The following directories are supported:
+  /// - `DIRECTORY_DOWNLOADS`: Downloads directory = 'DIRECTORY_DOWNLOADS' .
+  /// - `DIRECTORY_MUSIC`: Music directory = 'DIRECTORY_MUSIC' .
+  /// - `DIRECTORY_PODCASTS`: Podcasts directory = 'DIRECTORY_PODCASTS'.
+  /// - `DIRECTORY_RINGTONES`: Ringtones directory = 'DIRECTORY_RINGTONES'.
+  /// - `DIRECTORY_ALARMS`: Alarms directory = 'DIRECTORY_ALARMS'.
+  /// - `DIRECTORY_NOTIFICATIONS`: Notifications directory = 'DIRECTORY_NOTIFICATIONS' .
+  /// - `DIRECTORY_PICTURES`: Pictures directory = 'DIRECTORY_PICTURES' .
+  /// - `DIRECTORY_MOVIES`: Movies directory = 'DIRECTORY_MOVIES'.
+  /// - `DIRECTORY_DCIM`: DCIM (Digital Camera Images) directory = 'DIRECTORY_DCIM' .
+  /// - `DIRECTORY_DOCUMENTS`: Documents directory = 'DIRECTORY_DOCUMENTS' .
+  /// - `DIRECTORY_SCREENSHOTS`: Screenshots directory = 'DIRECTORY_SCREENSHOTS'  .
+  /// - `DIRECTORY_AUDIOBOOKS`: Audiobooks directory. = 'DIRECTORY_AUDIOBOOKS' .
+  ///
   /// Parameters:
   ///   - directory: The name of the directory whose path is to be retrieved.
   ///
   /// Returns:
   ///   A [Future] that completes with the directory path as a [String], or `null`
   ///   if the path is not available.
+  /// Retrieves paths for various common directories on the iOS platform.
+  ///
+  /// --
   Future<String?> getDirectoryPath({required String directory}) {
-    return ExternalPathIosMacPlatform.instance
-        .getDirectoryPath(directory: directory);
+    return ExternalPathIosMacPlatform.instance.getDirectoryPath(directory: directory);
   }
 
   /// Retrieves the path for a specified directory on the macOS platform.
@@ -39,15 +55,22 @@ class ExternalPathIosMac {
   /// implementation of [ExternalPathIosMacPlatform]. It retrieves the directory path
   /// specified by the [directory] parameter for macOS.
   ///
+  /// The following directories are supported:
+  /// - `DIRECTORY_DOWNLOADS`: Downloads directory = "DIRECTORY_DOWNLOADS".
+  /// - `DIRECTORY_PICTURES`: DIRECTORY_PICTURES directory = "DIRECTORY_PICTURES".
+  /// - `IRECTORY_MOVIES`: IRECTORY_MOVIES directory = "DIRECTORY_MOVIES".
+  ///
   /// Parameters:
   ///   - directory: The name of the directory whose path is to be retrieved.
   ///
   /// Returns:
   ///   A [Future] that completes with the directory path as a [String], or `null`
   ///   if the path is not available.
+  /// Retrieves paths for various common directories on the macOS platform.
+  ///
+  /// --
   Future<String?> getDirectoryPathMacOs({required String directory}) {
-    return ExternalPathIosMacPlatform.instance
-        .getDirectoryPathMacOs(directory: directory);
+    return ExternalPathIosMacPlatform.instance.getDirectoryPathMacOs(directory: directory);
   }
 
   /// Retrieves the platform version from the native side (iOS or macOS).
