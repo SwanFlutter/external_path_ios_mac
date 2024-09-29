@@ -29,7 +29,8 @@ abstract class ExternalPathIosMacPlatform extends PlatformInterface {
   static final Object _token = Object();
 
   /// A unique token used to verify the integrity of platform implementations
-  static ExternalPathIosMacPlatform _instance = MethodChannelExternalPathIosMac();
+  static ExternalPathIosMacPlatform _instance =
+      MethodChannelExternalPathIosMac();
 
   /// Provides the current instance of [ExternalPathIosMacPlatform].
   ///
@@ -104,7 +105,8 @@ abstract class ExternalPathIosMacPlatform extends PlatformInterface {
   ///
   /// --
   Future<String?> getDirectoryPathMacOs({required String directory}) {
-    throw UnimplementedError('getDirectoryPathMacOs() has not been implemented.');
+    throw UnimplementedError(
+        'getDirectoryPathMacOs() has not been implemented.');
   }
 
   /// Retrieves the platform version from the native platform.
