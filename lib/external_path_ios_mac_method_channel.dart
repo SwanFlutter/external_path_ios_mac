@@ -36,7 +36,8 @@ class MethodChannelExternalPathIosMac extends ExternalPathIosMacPlatform {
   ///   A [Future] that completes with the platform version as a [String], or `null` if not available.
   @override
   Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
+    final version =
+        await methodChannel.invokeMethod<String>('getPlatformVersion');
     return version;
   }
 
@@ -72,7 +73,8 @@ class MethodChannelExternalPathIosMac extends ExternalPathIosMacPlatform {
   /// --
   @override
   Future<String?> getDirectoryPath({required String directory}) async {
-    final version = await methodChannel.invokeMethod<String>('getDirectoryPath', {'directory': directory});
+    final version = await methodChannel
+        .invokeMethod<String>('getDirectoryPath', {'directory': directory});
     return version;
   }
 
@@ -99,7 +101,8 @@ class MethodChannelExternalPathIosMac extends ExternalPathIosMacPlatform {
   /// --
   @override
   Future<String?> getDirectoryPathMacOs({required String directory}) async {
-    final version = await methodChannel.invokeMethod<String>('getDirectoryPathMacOs', {'directory': directory});
+    final version = await methodChannel.invokeMethod<String>(
+        'getDirectoryPathMacOs', {'directory': directory});
     return version;
   }
 }
