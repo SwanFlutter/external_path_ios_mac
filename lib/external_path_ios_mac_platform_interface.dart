@@ -29,8 +29,7 @@ abstract class ExternalPathIosMacPlatform extends PlatformInterface {
   static final Object _token = Object();
 
   /// A unique token used to verify the integrity of platform implementations
-  static ExternalPathIosMacPlatform _instance =
-      MethodChannelExternalPathIosMac();
+  static ExternalPathIosMacPlatform _instance = MethodChannelExternalPathIosMac();
 
   /// Provides the current instance of [ExternalPathIosMacPlatform].
   ///
@@ -51,35 +50,61 @@ abstract class ExternalPathIosMacPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  /// Retrieves the specified directory path on the iOS platform.
+  // Retrieves the path for a specified directory on the iOS platform.
   ///
-  /// This method must be implemented by platform-specific subclasses to provide the
-  /// path for the specified directory.
+  /// This method calls the `getDirectoryPath` method of the current platform-specific
+  /// implementation of [ExternalPathIosMacPlatform]. It retrieves the directory path
+  /// specified by the [directory] parameter.
+  ///
+  /// The following directories are supported:
+  /// - `DIRECTORY_DOWNLOADS`: Downloads directory = 'DIRECTORY_DOWNLOADS' .
+  /// - `DIRECTORY_MUSIC`: Music directory = 'DIRECTORY_MUSIC' .
+  /// - `DIRECTORY_PODCASTS`: Podcasts directory = 'DIRECTORY_PODCASTS'.
+  /// - `DIRECTORY_RINGTONES`: Ringtones directory = 'DIRECTORY_RINGTONES'.
+  /// - `DIRECTORY_ALARMS`: Alarms directory = 'DIRECTORY_ALARMS'.
+  /// - `DIRECTORY_NOTIFICATIONS`: Notifications directory = 'DIRECTORY_NOTIFICATIONS' .
+  /// - `DIRECTORY_PICTURES`: Pictures directory = 'DIRECTORY_PICTURES' .
+  /// - `DIRECTORY_MOVIES`: Movies directory = 'DIRECTORY_MOVIES'.
+  /// - `DIRECTORY_DCIM`: DCIM (Digital Camera Images) directory = 'DIRECTORY_DCIM' .
+  /// - `DIRECTORY_DOCUMENTS`: Documents directory = 'DIRECTORY_DOCUMENTS' .
+  /// - `DIRECTORY_SCREENSHOTS`: Screenshots directory = 'DIRECTORY_SCREENSHOTS'  .
+  /// - `DIRECTORY_AUDIOBOOKS`: Audiobooks directory. = 'DIRECTORY_AUDIOBOOKS' .
   ///
   /// Parameters:
   ///   - directory: The name of the directory whose path is to be retrieved.
   ///
   /// Returns:
-  ///   A [Future] that completes with the directory path as a [String], or throws
-  ///   an [UnimplementedError] if not implemented.
+  ///   A [Future] that completes with the directory path as a [String], or `null`
+  ///   if the path is not available.
+  /// Retrieves paths for various common directories on the iOS platform.
+  ///
+  /// --
   Future<String?> getDirectoryPath({required String directory}) {
     throw UnimplementedError('getDirectoryPath() has not been implemented.');
   }
 
-  /// Retrieves the specified directory path on the macOS platform.
+  /// Retrieves the path for a specified directory on the macOS platform.
   ///
-  /// This method must be implemented by platform-specific subclasses to provide the
-  /// path for the specified directory on macOS.
+  /// This method calls the `getDirectoryPathMacOs` method of the current platform-specific
+  /// implementation of [ExternalPathIosMacPlatform]. It retrieves the directory path
+  /// specified by the [directory] parameter for macOS.
+  ///
+  /// The following directories are supported:
+  /// - `DIRECTORY_DOWNLOADS`: Downloads directory = "DIRECTORY_DOWNLOADS".
+  /// - `DIRECTORY_PICTURES`: DIRECTORY_PICTURES directory = "DIRECTORY_PICTURES".
+  /// - `IRECTORY_MOVIES`: IRECTORY_MOVIES directory = "DIRECTORY_MOVIES".
   ///
   /// Parameters:
   ///   - directory: The name of the directory whose path is to be retrieved.
   ///
   /// Returns:
-  ///   A [Future] that completes with the directory path as a [String], or throws
-  ///   an [UnimplementedError] if not implemented.
+  ///   A [Future] that completes with the directory path as a [String], or `null`
+  ///   if the path is not available.
+  /// Retrieves paths for various common directories on the macOS platform.
+  ///
+  /// --
   Future<String?> getDirectoryPathMacOs({required String directory}) {
-    throw UnimplementedError(
-        'getDirectoryPathMacOs() has not been implemented.');
+    throw UnimplementedError('getDirectoryPathMacOs() has not been implemented.');
   }
 
   /// Retrieves the platform version from the native platform.

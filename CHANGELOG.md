@@ -10,3 +10,7 @@
 
 * Edit api document and README.md.
 * Update package.
+
+## 0.0.4
+
+* Update API.

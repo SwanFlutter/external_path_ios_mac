@@ -15,6 +15,7 @@ import 'external_path_ios_mac_platform_interface.dart';
 /// final macOsLibraryPath = await externalPath.getDirectoryPathMacOs(directory: 'Library');
 /// final platformVersion = await externalPath.getPlatformVersion();
 /// ```
+/// --
 class ExternalPathIosMac {
   // Retrieves the path for a specified directory on the iOS platform.
   ///
@@ -46,8 +47,7 @@ class ExternalPathIosMac {
   ///
   /// --
   Future<String?> getDirectoryPath({required String directory}) {
-    return ExternalPathIosMacPlatform.instance
-        .getDirectoryPath(directory: directory);
+    return ExternalPathIosMacPlatform.instance.getDirectoryPath(directory: directory);
   }
 
   /// Retrieves the path for a specified directory on the macOS platform.
@@ -71,8 +71,7 @@ class ExternalPathIosMac {
   ///
   /// --
   Future<String?> getDirectoryPathMacOs({required String directory}) {
-    return ExternalPathIosMacPlatform.instance
-        .getDirectoryPathMacOs(directory: directory);
+    return ExternalPathIosMacPlatform.instance.getDirectoryPathMacOs(directory: directory);
   }
 
   /// Retrieves the platform version from the native side (iOS or macOS).
