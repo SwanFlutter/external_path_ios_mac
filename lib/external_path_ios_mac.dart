@@ -13,8 +13,8 @@ import 'external_path_ios_mac_platform_interface.dart';
 /// Example usage:
 /// ```dart
 /// final externalPath = ExternalPathIosMac();
-/// final documentsPath = await externalPath.getDirectoryPath(directory: 'Documents');
-/// final macOsLibraryPath = await externalPath.getDirectoryPathMacOs(directory: 'Library');
+/// final documentsPath = await externalPath.getDirectoryPath(directory: ExternalPathIosMac.DIRECTORY_DOWNLOADS);
+/// final macOsLibraryPath = await externalPath.getDirectoryPathMacOs(directory: ExternalPathIosMac.DIRECTORY_DOWNLOADS_MAC);
 /// final platformVersion = await externalPath.getPlatformVersion();
 /// ```
 /// --
@@ -38,7 +38,7 @@ class ExternalPathIosMac {
   static const String DIRECTORY_PICTURES_MAC = 'DIRECTORY_PICTURES';
   static const String DIRECTORY_MOVIES_MAC = 'DIRECTORY_MOVIES';
 
-  // Retrieves the path for a specified directory on the iOS platform.
+  /// Retrieves the path for a specified directory on the iOS platform.
   ///
   /// This method calls the `getDirectoryPath` method of the current platform-specific
   /// implementation of [ExternalPathIosMacPlatform]. It retrieves the directory path
@@ -69,8 +69,7 @@ class ExternalPathIosMac {
   ///
   /// --
   Future<String?> getDirectoryPath({required String directory}) {
-    return ExternalPathIosMacPlatform.instance
-        .getDirectoryPath(directory: directory);
+    return ExternalPathIosMacPlatform.instance.getDirectoryPath(directory: directory);
   }
 
   /// Retrieves the path for a specified directory on the macOS platform.
@@ -95,8 +94,7 @@ class ExternalPathIosMac {
   ///
   /// --
   Future<String?> getDirectoryPathMacOs({required String directory}) {
-    return ExternalPathIosMacPlatform.instance
-        .getDirectoryPathMacOs(directory: directory);
+    return ExternalPathIosMacPlatform.instance.getDirectoryPathMacOs(directory: directory);
   }
 
   /// Retrieves the platform version from the native side (iOS or macOS).
