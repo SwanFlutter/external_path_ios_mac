@@ -15,6 +15,7 @@
 
 * Update API.
 
-## 0.0.4+1
+## 0.0.5
 
 * Update API.
+* Update package.

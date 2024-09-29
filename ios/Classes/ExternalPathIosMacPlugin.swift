@@ -24,6 +24,7 @@ public class ExternalPathIosMacPlugin: NSObject, FlutterPlugin {
             result(FlutterMethodNotImplemented)
         }
     }
+    
 
     private func getDirectoryPath(for directory: String) -> String? {
         #if os(iOS)

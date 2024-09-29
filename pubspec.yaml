@@ -1,6 +1,6 @@
 name: external_path_ios_mac
 description: "A Flutter package for restoring directory paths on iOS and macOS devices, ensuring file access and management across platforms."
-version: 0.0.4+1
+version: 0.0.5
 homepage: "https://github.com/SwanFlutter/external_path_ios_mac"
 
 environment:

@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'external_path_ios_mac_platform_interface.dart';
 
 /// A class that provides methods to access directory paths and platform version
@@ -17,6 +19,25 @@ import 'external_path_ios_mac_platform_interface.dart';
 /// ```
 /// --
 class ExternalPathIosMac {
+  /// Definition of records related to directories on the iOS platform
+  static const String DIRECTORY_DOWNLOADS = 'DIRECTORY_DOWNLOADS';
+  static const String DIRECTORY_MUSIC = 'DIRECTORY_MUSIC';
+  static const String DIRECTORY_PODCASTS = 'DIRECTORY_PODCASTS';
+  static const String DIRECTORY_RINGTONES = 'DIRECTORY_RINGTONES';
+  static const String DIRECTORY_ALARMS = 'DIRECTORY_ALARMS';
+  static const String DIRECTORY_NOTIFICATIONS = 'DIRECTORY_NOTIFICATIONS';
+  static const String DIRECTORY_PICTURES = 'DIRECTORY_PICTURES';
+  static const String DIRECTORY_MOVIES = 'DIRECTORY_MOVIES';
+  static const String DIRECTORY_DCIM = 'DIRECTORY_DCIM';
+  static const String DIRECTORY_DOCUMENTS = 'DIRECTORY_DOCUMENTS';
+  static const String DIRECTORY_SCREENSHOTS = 'DIRECTORY_SCREENSHOTS';
+  static const String DIRECTORY_AUDIOBOOKS = 'DIRECTORY_AUDIOBOOKS';
+
+  /// // Definition of records related to directories on the macOS platform
+  static const String DIRECTORY_DOWNLOADS_MAC = 'DIRECTORY_DOWNLOADS';
+  static const String DIRECTORY_PICTURES_MAC = 'DIRECTORY_PICTURES';
+  static const String DIRECTORY_MOVIES_MAC = 'DIRECTORY_MOVIES';
+
   // Retrieves the path for a specified directory on the iOS platform.
   ///
   /// This method calls the `getDirectoryPath` method of the current platform-specific
@@ -24,19 +45,20 @@ class ExternalPathIosMac {
   /// specified by the [directory] parameter.
   ///
   /// The following directories are supported:
-  /// - `DIRECTORY_DOWNLOADS`: Downloads directory = 'DIRECTORY_DOWNLOADS' .
-  /// - `DIRECTORY_MUSIC`: Music directory = 'DIRECTORY_MUSIC' .
-  /// - `DIRECTORY_PODCASTS`: Podcasts directory = 'DIRECTORY_PODCASTS'.
-  /// - `DIRECTORY_RINGTONES`: Ringtones directory = 'DIRECTORY_RINGTONES'.
-  /// - `DIRECTORY_ALARMS`: Alarms directory = 'DIRECTORY_ALARMS'.
-  /// - `DIRECTORY_NOTIFICATIONS`: Notifications directory = 'DIRECTORY_NOTIFICATIONS' .
-  /// - `DIRECTORY_PICTURES`: Pictures directory = 'DIRECTORY_PICTURES' .
-  /// - `DIRECTORY_MOVIES`: Movies directory = 'DIRECTORY_MOVIES'.
-  /// - `DIRECTORY_DCIM`: DCIM (Digital Camera Images) directory = 'DIRECTORY_DCIM' .
-  /// - `DIRECTORY_DOCUMENTS`: Documents directory = 'DIRECTORY_DOCUMENTS' .
-  /// - `DIRECTORY_SCREENSHOTS`: Screenshots directory = 'DIRECTORY_SCREENSHOTS'  .
-  /// - `DIRECTORY_AUDIOBOOKS`: Audiobooks directory. = 'DIRECTORY_AUDIOBOOKS' .
-  ///
+  /// ```dart
+  /// - `DIRECTORY_DOWNLOADS`: ExternalPathIosMac.DIRECTORY_DOWNLOADS .
+  /// - `DIRECTORY_MUSIC`: ExternalPathIosMac.DIRECTORY_MUSIC .
+  /// - `DIRECTORY_PODCASTS`: ExternalPathIosMac.DIRECTORY_PODCASTS .
+  /// - `DIRECTORY_RINGTONES`: ExternalPathIosMac.DIRECTORY_RINGTONES .
+  /// - `DIRECTORY_ALARMS`: ExternalPathIosMac.DIRECTORY_ALARMS .
+  /// - `DIRECTORY_NOTIFICATIONS`: ExternalPathIosMac.DIRECTORY_NOTIFICATIONS .
+  /// - `DIRECTORY_PICTURES`: ExternalPathIosMac.DIRECTORY_PICTURES .
+  /// - `DIRECTORY_MOVIES`: ExternalPathIosMac.DIRECTORY_MOVIES .
+  /// - `DIRECTORY_DCIM`: ExternalPathIosMac.DIRECTORY_DCIM .
+  /// - `DIRECTORY_DOCUMENTS`: ExternalPathIosMac.DIRECTORY_DOCUMENTS .
+  /// - `DIRECTORY_SCREENSHOTS`: ExternalPathIosMac.DIRECTORY_SCREENSHOTS .
+  /// - `DIRECTORY_AUDIOBOOKS`: ExternalPathIosMac.DIRECTORY_AUDIOBOOKS .
+  ///```
   /// Parameters:
   ///   - directory: The name of the directory whose path is to be retrieved.
   ///
@@ -58,10 +80,11 @@ class ExternalPathIosMac {
   /// specified by the [directory] parameter for macOS.
   ///
   /// The following directories are supported:
-  /// - `DIRECTORY_DOWNLOADS`: Downloads directory = "DIRECTORY_DOWNLOADS".
-  /// - `DIRECTORY_PICTURES`: DIRECTORY_PICTURES directory = "DIRECTORY_PICTURES".
-  /// - `IRECTORY_MOVIES`: IRECTORY_MOVIES directory = "DIRECTORY_MOVIES".
-  ///
+  /// ```dart
+  /// - `DIRECTORY_DOWNLOADS`: ExternalPathIosMac.DIRECTORY_DOWNLOADS .
+  /// - `DIRECTORY_PICTURES`: ExternalPathIosMac.DIRECTORY_PICTURES .
+  /// - `DIRECTORY_MOVIES`: ExternalPathIosMac.DIRECTORY_MOVIES .
+  ///```
   /// Parameters:
   ///   - directory: The name of the directory whose path is to be retrieved.
   ///

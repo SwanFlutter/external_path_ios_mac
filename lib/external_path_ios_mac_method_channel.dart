@@ -41,26 +41,27 @@ class MethodChannelExternalPathIosMac extends ExternalPathIosMacPlatform {
     return version;
   }
 
-  // Retrieves the path for a specified directory on the iOS platform.
+  /// Retrieves the path for a specified directory on the iOS platform.
   ///
   /// This method calls the `getDirectoryPath` method of the current platform-specific
   /// implementation of [ExternalPathIosMacPlatform]. It retrieves the directory path
   /// specified by the [directory] parameter.
   ///
   /// The following directories are supported:
-  /// - `DIRECTORY_DOWNLOADS`: Downloads directory = 'DIRECTORY_DOWNLOADS' .
-  /// - `DIRECTORY_MUSIC`: Music directory = 'DIRECTORY_MUSIC' .
-  /// - `DIRECTORY_PODCASTS`: Podcasts directory = 'DIRECTORY_PODCASTS'.
-  /// - `DIRECTORY_RINGTONES`: Ringtones directory = 'DIRECTORY_RINGTONES'.
-  /// - `DIRECTORY_ALARMS`: Alarms directory = 'DIRECTORY_ALARMS'.
-  /// - `DIRECTORY_NOTIFICATIONS`: Notifications directory = 'DIRECTORY_NOTIFICATIONS' .
-  /// - `DIRECTORY_PICTURES`: Pictures directory = 'DIRECTORY_PICTURES' .
-  /// - `DIRECTORY_MOVIES`: Movies directory = 'DIRECTORY_MOVIES'.
-  /// - `DIRECTORY_DCIM`: DCIM (Digital Camera Images) directory = 'DIRECTORY_DCIM' .
-  /// - `DIRECTORY_DOCUMENTS`: Documents directory = 'DIRECTORY_DOCUMENTS' .
-  /// - `DIRECTORY_SCREENSHOTS`: Screenshots directory = 'DIRECTORY_SCREENSHOTS'  .
-  /// - `DIRECTORY_AUDIOBOOKS`: Audiobooks directory. = 'DIRECTORY_AUDIOBOOKS' .
-  ///
+  /// ```dart
+  /// - `DIRECTORY_DOWNLOADS`: ExternalPathIosMac.DIRECTORY_DOWNLOADS .
+  /// - `DIRECTORY_MUSIC`: ExternalPathIosMac.DIRECTORY_MUSIC .
+  /// - `DIRECTORY_PODCASTS`: ExternalPathIosMac.DIRECTORY_PODCASTS .
+  /// - `DIRECTORY_RINGTONES`: ExternalPathIosMac.DIRECTORY_RINGTONES .
+  /// - `DIRECTORY_ALARMS`: ExternalPathIosMac.DIRECTORY_ALARMS .
+  /// - `DIRECTORY_NOTIFICATIONS`: ExternalPathIosMac.DIRECTORY_NOTIFICATIONS .
+  /// - `DIRECTORY_PICTURES`: ExternalPathIosMac.DIRECTORY_PICTURES .
+  /// - `DIRECTORY_MOVIES`: ExternalPathIosMac.DIRECTORY_MOVIES .
+  /// - `DIRECTORY_DCIM`: ExternalPathIosMac.DIRECTORY_DCIM .
+  /// - `DIRECTORY_DOCUMENTS`: ExternalPathIosMac.DIRECTORY_DOCUMENTS .
+  /// - `DIRECTORY_SCREENSHOTS`: ExternalPathIosMac.DIRECTORY_SCREENSHOTS .
+  /// - `DIRECTORY_AUDIOBOOKS`: ExternalPathIosMac.DIRECTORY_AUDIOBOOKS .
+  ///```
   /// Parameters:
   ///   - directory: The name of the directory whose path is to be retrieved.
   ///
@@ -84,10 +85,11 @@ class MethodChannelExternalPathIosMac extends ExternalPathIosMacPlatform {
   /// specified by the [directory] parameter for macOS.
   ///
   /// The following directories are supported:
-  /// - `DIRECTORY_DOWNLOADS`: Downloads directory = "DIRECTORY_DOWNLOADS".
-  /// - `DIRECTORY_PICTURES`: DIRECTORY_PICTURES directory = "DIRECTORY_PICTURES".
-  /// - `IRECTORY_MOVIES`: IRECTORY_MOVIES directory = "DIRECTORY_MOVIES".
-  ///
+  /// ```dart
+  /// - `DIRECTORY_DOWNLOADS`: ExternalPathIosMac.DIRECTORY_DOWNLOADS .
+  /// - `DIRECTORY_PICTURES`: ExternalPathIosMac.DIRECTORY_PICTURES .
+  /// - `DIRECTORY_MOVIES`: ExternalPathIosMac.DIRECTORY_MOVIES .
+  ///```
   /// Parameters:
   ///   - directory: The name of the directory whose path is to be retrieved.
   ///
