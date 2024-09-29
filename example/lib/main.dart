@@ -42,57 +42,25 @@ class _MyAppState extends State<MyApp> {
   Future<void> _initPlatformState() async {
     String platformVersion;
     try {
-      platformVersion =
-          (await _externalPathIosMacPlugin.getPlatformVersion()) ??
-              'Unknown platform version';
+      platformVersion = (await _externalPathIosMacPlugin.getPlatformVersion()) ?? 'Unknown platform version';
 
-      _directoryPathDownload = (await _externalPathIosMacPlugin
-              .getDirectoryPath(directory: 'DIRECTORY_DOWNLOADS')) ??
-          'Unknown directory';
-      _directoryPathMusic = (await _externalPathIosMacPlugin.getDirectoryPath(
-              directory: 'DIRECTORY_MUSIC')) ??
-          'Unknown directory';
-      _directoryPathPodcasts = (await _externalPathIosMacPlugin
-              .getDirectoryPath(directory: 'DIRECTORY_PODCASTS')) ??
-          'Unknown directory';
-      _directoryPathRingtones = (await _externalPathIosMacPlugin
-              .getDirectoryPath(directory: 'DIRECTORY_RINGTONES')) ??
-          'Unknown directory';
-      _directoryPathAlarms = (await _externalPathIosMacPlugin.getDirectoryPath(
-              directory: 'DIRECTORY_ALARMS')) ??
-          'Unknown directory';
-      _directoryPathNotifications = (await _externalPathIosMacPlugin
-              .getDirectoryPath(directory: 'DIRECTORY_NOTIFICATIONS')) ??
-          'Unknown directory';
-      _directoryPathPictures = (await _externalPathIosMacPlugin
-              .getDirectoryPath(directory: 'DIRECTORY_PICTURES')) ??
-          'Unknown directory';
-      _directoryPathMovies = (await _externalPathIosMacPlugin.getDirectoryPath(
-              directory: 'DIRECTORY_MOVIES')) ??
-          'Unknown directory';
-      _directoryPathDCIM = (await _externalPathIosMacPlugin.getDirectoryPath(
-              directory: 'DIRECTORY_DCIM')) ??
-          'Unknown directory';
-      _directoryPathDocuments = (await _externalPathIosMacPlugin
-              .getDirectoryPath(directory: 'DIRECTORY_DOCUMENTS')) ??
-          'Unknown directory';
-      _directoryPathScreenshots = (await _externalPathIosMacPlugin
-              .getDirectoryPath(directory: 'DIRECTORY_SCREENSHOTS')) ??
-          'Unknown directory';
-      _directoryPathAudiobooks = (await _externalPathIosMacPlugin
-              .getDirectoryPath(directory: 'DIRECTORY_AUDIOBOOKS')) ??
-          'Unknown directory';
+      _directoryPathDownload = (await _externalPathIosMacPlugin.getDirectoryPath(directory: ExternalPathIosMac.DIRECTORY_DOWNLOADS)) ?? 'Unknown directory';
+      _directoryPathMusic = (await _externalPathIosMacPlugin.getDirectoryPath(directory: ExternalPathIosMac.DIRECTORY_MUSIC)) ?? 'Unknown directory';
+      _directoryPathPodcasts = (await _externalPathIosMacPlugin.getDirectoryPath(directory: ExternalPathIosMac.DIRECTORY_PODCASTS)) ?? 'Unknown directory';
+      _directoryPathRingtones = (await _externalPathIosMacPlugin.getDirectoryPath(directory: ExternalPathIosMac.DIRECTORY_RINGTONES)) ?? 'Unknown directory';
+      _directoryPathAlarms = (await _externalPathIosMacPlugin.getDirectoryPath(directory: ExternalPathIosMac.DIRECTORY_ALARMS)) ?? 'Unknown directory';
+      _directoryPathNotifications = (await _externalPathIosMacPlugin.getDirectoryPath(directory: ExternalPathIosMac.DIRECTORY_NOTIFICATIONS)) ?? 'Unknown directory';
+      _directoryPathPictures = (await _externalPathIosMacPlugin.getDirectoryPath(directory: ExternalPathIosMac.DIRECTORY_PICTURES)) ?? 'Unknown directory';
+      _directoryPathMovies = (await _externalPathIosMacPlugin.getDirectoryPath(directory: ExternalPathIosMac.DIRECTORY_MOVIES)) ?? 'Unknown directory';
+      _directoryPathDCIM = (await _externalPathIosMacPlugin.getDirectoryPath(directory: ExternalPathIosMac.DIRECTORY_DCIM)) ?? 'Unknown directory';
+      _directoryPathDocuments = (await _externalPathIosMacPlugin.getDirectoryPath(directory: ExternalPathIosMac.DIRECTORY_DOCUMENTS)) ?? 'Unknown directory';
+      _directoryPathScreenshots = (await _externalPathIosMacPlugin.getDirectoryPath(directory: ExternalPathIosMac.DIRECTORY_SCREENSHOTS)) ?? 'Unknown directory';
+      _directoryPathAudiobooks = (await _externalPathIosMacPlugin.getDirectoryPath(directory: ExternalPathIosMac.DIRECTORY_AUDIOBOOKS)) ?? 'Unknown directory';
 
       // get path mac
-      _directoryPathDownloadMac = (await _externalPathIosMacPlugin
-              .getDirectoryPathMacOs(directory: "DIRECTORY_DOWNLOADS")) ??
-          'Unknown directory';
-      _directoryPathPicturesMac = (await _externalPathIosMacPlugin
-              .getDirectoryPathMacOs(directory: "DIRECTORY_PICTURES")) ??
-          'Unknown directory';
-      _directoryPathMoviesMac = (await _externalPathIosMacPlugin
-              .getDirectoryPathMacOs(directory: "DIRECTORY_MOVIES")) ??
-          'Unknown directory';
+      _directoryPathDownloadMac = (await _externalPathIosMacPlugin.getDirectoryPathMacOs(directory: ExternalPathIosMac.DIRECTORY_DOWNLOADS_MAC)) ?? 'Unknown directory';
+      _directoryPathPicturesMac = (await _externalPathIosMacPlugin.getDirectoryPathMacOs(directory: ExternalPathIosMac.DIRECTORY_PICTURES_MAC)) ?? 'Unknown directory';
+      _directoryPathMoviesMac = (await _externalPathIosMacPlugin.getDirectoryPathMacOs(directory: ExternalPathIosMac.DIRECTORY_MOVIES_MAC)) ?? 'Unknown directory';
     } catch (e) {
       platformVersion = 'Failed to get platform version.';
     }
@@ -131,13 +99,11 @@ class _MyAppState extends State<MyApp> {
           final file = File(filePath);
           await file.writeAsString('This is a sample text.');
 
-          ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text('File saved to $filePath')));
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('File saved to $filePath')));
         }
       }
     } catch (e) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('Failed to save file: $e')));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Failed to save file: $e')));
     }
   }
 
@@ -165,8 +131,7 @@ class _MyAppState extends State<MyApp> {
                 const SizedBox(height: 5),
                 Text('_directoryPathAlarms: $_directoryPathAlarms'),
                 const SizedBox(height: 5),
-                Text(
-                    '_directoryPathNotifications: $_directoryPathNotifications'),
+                Text('_directoryPathNotifications: $_directoryPathNotifications'),
                 const SizedBox(height: 5),
                 Text('_directoryPathPictures: $_directoryPathPictures'),
                 const SizedBox(height: 5),
