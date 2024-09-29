@@ -14,3 +14,7 @@
 ## 0.0.4
 
 * Update API.
+
+## 0.0.4+1
+
+* Update API.
