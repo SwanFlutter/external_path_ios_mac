@@ -24,8 +24,6 @@ dependencies:
 
 ---
 
-<هئل
-و
 <img src="https://github.com/user-attachments/assets/f7574952-92f7-4784-a433-c78453837e53" width="300"/>
 
 
