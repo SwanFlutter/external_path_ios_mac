@@ -86,9 +86,9 @@ class MethodChannelExternalPathIosMac extends ExternalPathIosMacPlatform {
   ///
   /// The following directories are supported:
   /// ```dart
-  /// - `DIRECTORY_DOWNLOADS`: ExternalPathIosMac.DIRECTORY_DOWNLOADS .
-  /// - `DIRECTORY_PICTURES`: ExternalPathIosMac.DIRECTORY_PICTURES .
-  /// - `DIRECTORY_MOVIES`: ExternalPathIosMac.DIRECTORY_MOVIES .
+  /// - `DIRECTORY_DOWNLOADS`: ExternalPathIosMac.DIRECTORY_DOWNLOADS_MAC .
+  /// - `DIRECTORY_PICTURES`: ExternalPathIosMac.DIRECTORY_PICTURES_MAC .
+  /// - `DIRECTORY_MOVIES`: ExternalPathIosMac.DIRECTORY_MOVIES_MAC .
   ///```
   /// Parameters:
   ///   - directory: The name of the directory whose path is to be retrieved.

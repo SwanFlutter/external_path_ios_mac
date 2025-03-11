@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:io';
 
 import 'package:external_path_ios_mac/external_path_ios_mac.dart';
@@ -46,64 +48,53 @@ class _MyAppState extends State<MyApp> {
           (await _externalPathIosMacPlugin.getPlatformVersion()) ??
               'Unknown platform version';
 
-      _directoryPathDownload =
-          (await _externalPathIosMacPlugin.getDirectoryPath(
-                  directory: ExternalPathIosMac.DIRECTORY_DOWNLOADS)) ??
-              'Unknown directory';
+      _directoryPathDownload = (await _externalPathIosMacPlugin
+              .getDirectoryPath(directory: DirectoryType.downloads)) ??
+          'Unknown directory';
       _directoryPathMusic = (await _externalPathIosMacPlugin.getDirectoryPath(
-              directory: ExternalPathIosMac.DIRECTORY_MUSIC)) ??
+              directory: DirectoryType.music)) ??
           'Unknown directory';
-      _directoryPathPodcasts =
-          (await _externalPathIosMacPlugin.getDirectoryPath(
-                  directory: ExternalPathIosMac.DIRECTORY_PODCASTS)) ??
-              'Unknown directory';
-      _directoryPathRingtones =
-          (await _externalPathIosMacPlugin.getDirectoryPath(
-                  directory: ExternalPathIosMac.DIRECTORY_RINGTONES)) ??
-              'Unknown directory';
+      _directoryPathPodcasts = (await _externalPathIosMacPlugin
+              .getDirectoryPath(directory: DirectoryType.podcasts)) ??
+          'Unknown directory';
+      _directoryPathRingtones = (await _externalPathIosMacPlugin
+              .getDirectoryPath(directory: DirectoryType.ringtones)) ??
+          'Unknown directory';
       _directoryPathAlarms = (await _externalPathIosMacPlugin.getDirectoryPath(
-              directory: ExternalPathIosMac.DIRECTORY_ALARMS)) ??
+              directory: DirectoryType.alarms)) ??
           'Unknown directory';
-      _directoryPathNotifications =
-          (await _externalPathIosMacPlugin.getDirectoryPath(
-                  directory: ExternalPathIosMac.DIRECTORY_NOTIFICATIONS)) ??
-              'Unknown directory';
-      _directoryPathPictures =
-          (await _externalPathIosMacPlugin.getDirectoryPath(
-                  directory: ExternalPathIosMac.DIRECTORY_PICTURES)) ??
-              'Unknown directory';
+      _directoryPathNotifications = (await _externalPathIosMacPlugin
+              .getDirectoryPath(directory: DirectoryType.notifications)) ??
+          'Unknown directory';
+      _directoryPathPictures = (await _externalPathIosMacPlugin
+              .getDirectoryPath(directory: DirectoryType.pictures)) ??
+          'Unknown directory';
       _directoryPathMovies = (await _externalPathIosMacPlugin.getDirectoryPath(
-              directory: ExternalPathIosMac.DIRECTORY_MOVIES)) ??
+              directory: DirectoryType.movies)) ??
           'Unknown directory';
       _directoryPathDCIM = (await _externalPathIosMacPlugin.getDirectoryPath(
-              directory: ExternalPathIosMac.DIRECTORY_DCIM)) ??
+              directory: DirectoryType.dim)) ??
           'Unknown directory';
-      _directoryPathDocuments =
-          (await _externalPathIosMacPlugin.getDirectoryPath(
-                  directory: ExternalPathIosMac.DIRECTORY_DOCUMENTS)) ??
-              'Unknown directory';
-      _directoryPathScreenshots =
-          (await _externalPathIosMacPlugin.getDirectoryPath(
-                  directory: ExternalPathIosMac.DIRECTORY_SCREENSHOTS)) ??
-              'Unknown directory';
-      _directoryPathAudiobooks =
-          (await _externalPathIosMacPlugin.getDirectoryPath(
-                  directory: ExternalPathIosMac.DIRECTORY_AUDIOBOOKS)) ??
-              'Unknown directory';
+      _directoryPathDocuments = (await _externalPathIosMacPlugin
+              .getDirectoryPath(directory: DirectoryType.documents)) ??
+          'Unknown directory';
+      _directoryPathScreenshots = (await _externalPathIosMacPlugin
+              .getDirectoryPath(directory: DirectoryType.screenshots)) ??
+          'Unknown directory';
+      _directoryPathAudiobooks = (await _externalPathIosMacPlugin
+              .getDirectoryPath(directory: DirectoryType.audiobooks)) ??
+          'Unknown directory';
 
       // get path mac
-      _directoryPathDownloadMac =
-          (await _externalPathIosMacPlugin.getDirectoryPathMacOs(
-                  directory: ExternalPathIosMac.DIRECTORY_DOWNLOADS_MAC)) ??
-              'Unknown directory';
-      _directoryPathPicturesMac =
-          (await _externalPathIosMacPlugin.getDirectoryPathMacOs(
-                  directory: ExternalPathIosMac.DIRECTORY_PICTURES_MAC)) ??
-              'Unknown directory';
-      _directoryPathMoviesMac =
-          (await _externalPathIosMacPlugin.getDirectoryPathMacOs(
-                  directory: ExternalPathIosMac.DIRECTORY_MOVIES_MAC)) ??
-              'Unknown directory';
+      _directoryPathDownloadMac = (await _externalPathIosMacPlugin
+              .getDirectoryPathMacOs(directory: MacDirectoryType.downloads)) ??
+          'Unknown directory';
+      _directoryPathPicturesMac = (await _externalPathIosMacPlugin
+              .getDirectoryPathMacOs(directory: MacDirectoryType.pictures)) ??
+          'Unknown directory';
+      _directoryPathMoviesMac = (await _externalPathIosMacPlugin
+              .getDirectoryPathMacOs(directory: MacDirectoryType.movies)) ??
+          'Unknown directory';
     } catch (e) {
       platformVersion = 'Failed to get platform version.';
     }

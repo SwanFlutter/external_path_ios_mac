@@ -19,3 +19,7 @@
 
 * Update API.
 * Update package.
+
+## 0.0.6
+
+* Update package.

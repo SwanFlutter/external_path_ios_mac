@@ -33,14 +33,15 @@ void main() {
 
     expect(
         await externalPathPlugin.getDirectoryPath(
-            directory: 'DIRECTORY_DOWNLOADS'),
+            directory: DirectoryType.downloads),
         '/mock/path/DIRECTORY_DOWNLOADS');
     expect(
-        await externalPathPlugin.getDirectoryPath(directory: 'DIRECTORY_MUSIC'),
+        await externalPathPlugin.getDirectoryPath(
+            directory: DirectoryType.music),
         '/mock/path/DIRECTORY_MUSIC');
     expect(
         await externalPathPlugin.getDirectoryPath(
-            directory: 'DIRECTORY_PICTURES'),
+            directory: DirectoryType.pictures),
         '/mock/path/DIRECTORY_PICTURES');
   });
 }

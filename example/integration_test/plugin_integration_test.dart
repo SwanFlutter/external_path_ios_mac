@@ -18,11 +18,11 @@ void main() {
 
     // Test for different directories
     final String? downloadsPath =
-        await plugin.getDirectoryPath(directory: 'DIRECTORY_DOWNLOADS');
+        await plugin.getDirectoryPath(directory: DirectoryType.downloads);
     final String? musicPath =
-        await plugin.getDirectoryPath(directory: 'DIRECTORY_MUSIC');
+        await plugin.getDirectoryPath(directory: DirectoryType.music);
     final String? picturesPath =
-        await plugin.getDirectoryPath(directory: 'DIRECTORY_PICTURES');
+        await plugin.getDirectoryPath(directory: DirectoryType.pictures);
 
     // The path strings depend on the host platform running the test, so
     // just assert that some non-empty string is returned.

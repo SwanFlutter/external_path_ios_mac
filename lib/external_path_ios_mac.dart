@@ -1,6 +1,10 @@
 // ignore_for_file: constant_identifier_names
 
+import 'package:external_path_ios_mac/src/directory_type.dart';
+
 import 'external_path_ios_mac_platform_interface.dart';
+
+export 'package:external_path_ios_mac/src/directory_type.dart';
 
 /// A class that provides methods to access directory paths and platform version
 /// information on iOS and macOS platforms.
@@ -13,31 +17,12 @@ import 'external_path_ios_mac_platform_interface.dart';
 /// Example usage:
 /// ```dart
 /// final externalPath = ExternalPathIosMac();
-/// final documentsPath = await externalPath.getDirectoryPath(directory: ExternalPathIosMac.DIRECTORY_DOWNLOADS);
-/// final macOsLibraryPath = await externalPath.getDirectoryPathMacOs(directory: ExternalPathIosMac.DIRECTORY_DOWNLOADS_MAC);
+/// final documentsPath = await externalPath.getDirectoryPath(directory: DirectoryType.downloads);
+/// final macOsLibraryPath = await externalPath.getDirectoryPathMacOs(directory: MacDirectoryType.downloads);
 /// final platformVersion = await externalPath.getPlatformVersion();
+///
 /// ```
-/// --
 class ExternalPathIosMac {
-  /// Definition of records related to directories on the iOS platform
-  static const String DIRECTORY_DOWNLOADS = 'DIRECTORY_DOWNLOADS';
-  static const String DIRECTORY_MUSIC = 'DIRECTORY_MUSIC';
-  static const String DIRECTORY_PODCASTS = 'DIRECTORY_PODCASTS';
-  static const String DIRECTORY_RINGTONES = 'DIRECTORY_RINGTONES';
-  static const String DIRECTORY_ALARMS = 'DIRECTORY_ALARMS';
-  static const String DIRECTORY_NOTIFICATIONS = 'DIRECTORY_NOTIFICATIONS';
-  static const String DIRECTORY_PICTURES = 'DIRECTORY_PICTURES';
-  static const String DIRECTORY_MOVIES = 'DIRECTORY_MOVIES';
-  static const String DIRECTORY_DCIM = 'DIRECTORY_DCIM';
-  static const String DIRECTORY_DOCUMENTS = 'DIRECTORY_DOCUMENTS';
-  static const String DIRECTORY_SCREENSHOTS = 'DIRECTORY_SCREENSHOTS';
-  static const String DIRECTORY_AUDIOBOOKS = 'DIRECTORY_AUDIOBOOKS';
-
-  /// // Definition of records related to directories on the macOS platform
-  static const String DIRECTORY_DOWNLOADS_MAC = 'DIRECTORY_DOWNLOADS';
-  static const String DIRECTORY_PICTURES_MAC = 'DIRECTORY_PICTURES';
-  static const String DIRECTORY_MOVIES_MAC = 'DIRECTORY_MOVIES';
-
   /// Retrieves the path for a specified directory on the iOS platform.
   ///
   /// This method calls the `getDirectoryPath` method of the current platform-specific
@@ -46,18 +31,18 @@ class ExternalPathIosMac {
   ///
   /// The following directories are supported:
   /// ```dart
-  /// - `DIRECTORY_DOWNLOADS`: ExternalPathIosMac.DIRECTORY_DOWNLOADS .
-  /// - `DIRECTORY_MUSIC`: ExternalPathIosMac.DIRECTORY_MUSIC .
-  /// - `DIRECTORY_PODCASTS`: ExternalPathIosMac.DIRECTORY_PODCASTS .
-  /// - `DIRECTORY_RINGTONES`: ExternalPathIosMac.DIRECTORY_RINGTONES .
-  /// - `DIRECTORY_ALARMS`: ExternalPathIosMac.DIRECTORY_ALARMS .
-  /// - `DIRECTORY_NOTIFICATIONS`: ExternalPathIosMac.DIRECTORY_NOTIFICATIONS .
-  /// - `DIRECTORY_PICTURES`: ExternalPathIosMac.DIRECTORY_PICTURES .
-  /// - `DIRECTORY_MOVIES`: ExternalPathIosMac.DIRECTORY_MOVIES .
-  /// - `DIRECTORY_DCIM`: ExternalPathIosMac.DIRECTORY_DCIM .
-  /// - `DIRECTORY_DOCUMENTS`: ExternalPathIosMac.DIRECTORY_DOCUMENTS .
-  /// - `DIRECTORY_SCREENSHOTS`: ExternalPathIosMac.DIRECTORY_SCREENSHOTS .
-  /// - `DIRECTORY_AUDIOBOOKS`: ExternalPathIosMac.DIRECTORY_AUDIOBOOKS .
+  /// - `DirectoryType.downloads`: Downloads directory.
+  /// - `DirectoryType.music`: Music directory.
+  /// - `DirectoryType.podcasts`: Podcasts directory.
+  /// - `DirectoryType.ringtones`: Ringtones directory.
+  /// - `DirectoryType.alarms`: Alarms directory.
+  /// - `DirectoryType.notifications`: Notifications directory.
+  /// - `DirectoryType.pictures`: Pictures directory.
+  /// - `DirectoryType.movies`: Movies directory.
+  /// - `DirectoryType.dim`: DIM directory.
+  /// - `DirectoryType.documents`: Documents directory.
+  /// - `DirectoryType.screenshots`: Screenshots directory.
+  /// - `DirectoryType.audiobooks`: Audiobooks directory.
   ///```
   /// Parameters:
   ///   - directory: The name of the directory whose path is to be retrieved.
@@ -65,12 +50,9 @@ class ExternalPathIosMac {
   /// Returns:
   ///   A [Future] that completes with the directory path as a [String], or `null`
   ///   if the path is not available.
-  /// Retrieves paths for various common directories on the iOS platform.
-  ///
-  /// --
-  Future<String?> getDirectoryPath({required String directory}) {
+  Future<String?> getDirectoryPath({required DirectoryType directory}) {
     return ExternalPathIosMacPlatform.instance
-        .getDirectoryPath(directory: directory);
+        .getDirectoryPath(directory: directory.name);
   }
 
   /// Retrieves the path for a specified directory on the macOS platform.
@@ -81,9 +63,9 @@ class ExternalPathIosMac {
   ///
   /// The following directories are supported:
   /// ```dart
-  /// - `DIRECTORY_DOWNLOADS`: ExternalPathIosMac.DIRECTORY_DOWNLOADS .
-  /// - `DIRECTORY_PICTURES`: ExternalPathIosMac.DIRECTORY_PICTURES .
-  /// - `DIRECTORY_MOVIES`: ExternalPathIosMac.DIRECTORY_MOVIES .
+  /// - `MacDirectoryType.downloads`: Downloads directory.
+  /// - `MacDirectoryType.pictures`: Pictures directory.
+  /// - `MacDirectoryType.movies`: Movies directory.
   ///```
   /// Parameters:
   ///   - directory: The name of the directory whose path is to be retrieved.
@@ -91,12 +73,9 @@ class ExternalPathIosMac {
   /// Returns:
   ///   A [Future] that completes with the directory path as a [String], or `null`
   ///   if the path is not available.
-  /// Retrieves paths for various common directories on the macOS platform.
-  ///
-  /// --
-  Future<String?> getDirectoryPathMacOs({required String directory}) {
+  Future<String?> getDirectoryPathMacOs({required MacDirectoryType directory}) {
     return ExternalPathIosMacPlatform.instance
-        .getDirectoryPathMacOs(directory: directory);
+        .getDirectoryPathMacOs(directory: directory.name);
   }
 
   /// Retrieves the platform version from the native side (iOS or macOS).

@@ -34,23 +34,28 @@ void main() {
     expect(initialPlatform, isInstanceOf<MethodChannelExternalPathIosMac>());
   });
 
-  test('getPlatformVersion', () async {
+  test('getDirectoryPath with DirectoryType enum', () async {
     ExternalPathIosMac externalPathIosMacPlugin = ExternalPathIosMac();
     MockExternalPathIosMacPlatform fakePlatform =
         MockExternalPathIosMacPlatform();
     ExternalPathIosMacPlatform.instance = fakePlatform;
 
+    // Test with DirectoryType.downloads
     expect(
         await externalPathIosMacPlugin.getDirectoryPath(
-            directory: 'DIRECTORY_DOWNLOADS'),
+            directory: DirectoryType.downloads),
         '/mock/path/DIRECTORY_DOWNLOADS');
+
+    // Test with DirectoryType.music
     expect(
         await externalPathIosMacPlugin.getDirectoryPath(
-            directory: 'DIRECTORY_MUSIC'),
+            directory: DirectoryType.music),
         '/mock/path/DIRECTORY_MUSIC');
+
+    // Test with DirectoryType.pictures
     expect(
         await externalPathIosMacPlugin.getDirectoryPath(
-            directory: 'DIRECTORY_PICTURES'),
+            directory: DirectoryType.pictures),
         '/mock/path/DIRECTORY_PICTURES');
   });
 }
