@@ -24,7 +24,10 @@ dependencies:
 
 ---
 
-![photo_2024-09-12_23-49-20](https://github.com/user-attachments/assets/f7574952-92f7-4784-a433-c78453837e53)
+<هئل
+و
+<img src="https://github.com/user-attachments/assets/f7574952-92f7-4784-a433-c78453837e53" width="300"/>
+
 
 ## How to Use
 
